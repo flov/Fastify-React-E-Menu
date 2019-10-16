@@ -83,11 +83,11 @@ class Menu extends Component {
           </div>
 
           {
-            this.state.loading ? (
+            loading ? (
               <div className="menu-row">
                 <div className="msg">Loading Items...</div>
               </div>
-            ) : this.state.errors ? (
+            ) : errors ? (
               <div className="menu-row">
                 <div className="err msg">Error in loading Items</div>
               </div>
