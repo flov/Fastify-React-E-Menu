@@ -6,8 +6,6 @@ export default class MenuItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      price: null,
       openEditForm: false,
     }
   }
@@ -25,7 +23,7 @@ export default class MenuItem extends Component {
   handleUpdate = ({name, price}) => {
     const updatedItem = {
       id : this.props.id, name, price
-    } 
+    }
     this.props.handleUpdate(updatedItem);
     this.handleCancel();
   }
@@ -42,15 +40,15 @@ export default class MenuItem extends Component {
         {
           !this.state.openEditForm ? (
             <div className="menu-row">
-              <div className="menu-item-name">{this.state.name}</div>
-              <div className="menu-item-price">{this.state.price}</div>
+              <div className="menu-item-name">{this.props.name}</div>
+              <div className="menu-item-price">{this.props.price}</div>
               <div className="operations">
                 <span onClick={this.handleEditClick} className="btn edit" ><i className="fas fa-pen"></i></span>
                 <span onClick={this.handleDelete} className="btn delete"><i className="fas fa-trash"></i></span>
               </div>
             </div>
           ) : (
-            <Form name={this.state.name} price={this.state.price} 
+            <Form name={this.props.name} price={this.props.price}
             closeForm={this.handleCancel} updateItem={this.handleUpdate} />
           )
         }
